@@ -8,14 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet var imagePickerView: UIImageView!
     @IBOutlet var cameraButton: UIBarButtonItem!
+    @IBOutlet var topTextField: UITextField!
+    @IBOutlet var bottomTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        topTextField.text = "TOP"
+        topTextField.textAlignment = .Center
+        self.topTextField.delegate = self
+        
+        bottomTextField.text = "BOTTOM"
+        bottomTextField.textAlignment = .Center
+        self.bottomTextField.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -50,6 +58,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
+    // Textfield Delegate Methods
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.text = ""
+    }
+    
 }
 

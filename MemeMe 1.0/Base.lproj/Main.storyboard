@@ -41,6 +41,16 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfx-j2-1JT">
+                                <rect key="frame" x="0.0" y="100" width="600" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CSZ-Z7-SEB">
+                                <rect key="frame" x="0.0" y="453" width="600" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -57,8 +67,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="CSZ-Z7-SEB" id="3rO-kp-H62"/>
                         <outlet property="cameraButton" destination="5pk-C7-jCc" id="z84-73-FN0"/>
                         <outlet property="imagePickerView" destination="Zij-mv-UT3" id="BTZ-NM-tHo"/>
+                        <outlet property="topTextField" destination="tfx-j2-1JT" id="WTL-Tf-8YX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
