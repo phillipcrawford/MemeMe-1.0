@@ -150,6 +150,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let meme = Meme( topText: bottomTextField.text!, bottomText: bottomTextField.text!, originalImage:
             imagePickerView.image!, memedImage: memedImage)
     }
+    @IBAction func activityViewController(sender: AnyObject) {
+        let memedImage = generateMemedImage()
+        let shareController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        self.presentViewController(shareController, animated: true, completion: nil)
+        shareController.completionWithItemsHandler = { activity, completed, items, error -> Void in
+            if completed {
+                self.save(memedImage)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+    }
+    @IBAction func reloadPage(sender: AnyObject) {
+        viewDidLoad()
+        viewWillAppear(true)
+        imagePickerView.image = nil
+    }
     
 }
 

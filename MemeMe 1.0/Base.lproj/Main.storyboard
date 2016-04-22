@@ -23,22 +23,36 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRQ-xB-T7s">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
-                                    <navigationItem id="sv2-wQ-a1E"/>
+                                    <navigationItem id="sv2-wQ-a1E">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="kvQ-WI-oXP">
+                                            <connections>
+                                                <action selector="activityViewController:" destination="BYZ-38-t0r" id="6Ng-yN-ymP"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="XBv-ZS-M70">
+                                            <connections>
+                                                <action selector="reloadPage:" destination="BYZ-38-t0r" id="CtR-aC-uhL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncH-mS-57s">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="n72-TJ-TTM"/>
                                     <barButtonItem title="Pick" id="eDU-2h-T9R">
                                         <connections>
                                             <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="3vo-cg-g7O"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qU0-h3-5WG"/>
                                     <barButtonItem title="Camera" id="5pk-C7-jCc">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="aO2-V1-6uo"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tQh-B8-3bz"/>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CSZ-Z7-SEB">
