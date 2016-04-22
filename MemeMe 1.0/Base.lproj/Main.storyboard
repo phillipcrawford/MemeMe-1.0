@@ -51,6 +51,9 @@
                             <constraint firstItem="ncH-mS-57s" firstAttribute="top" secondItem="Zij-mv-UT3" secondAttribute="bottom" id="yME-8K-z0c"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imagePickerView" destination="Zij-mv-UT3" id="BTZ-NM-tHo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
