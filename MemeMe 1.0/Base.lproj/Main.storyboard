@@ -78,6 +78,8 @@
                         <outlet property="bottomTextField" destination="CSZ-Z7-SEB" id="3rO-kp-H62"/>
                         <outlet property="cameraButton" destination="5pk-C7-jCc" id="z84-73-FN0"/>
                         <outlet property="imagePickerView" destination="Zij-mv-UT3" id="BTZ-NM-tHo"/>
+                        <outlet property="navBar" destination="BRQ-xB-T7s" id="Jzd-Z4-0Hr"/>
+                        <outlet property="toolBar" destination="ncH-mS-57s" id="IZz-rn-lY0"/>
                         <outlet property="topTextField" destination="tfx-j2-1JT" id="WTL-Tf-8YX"/>
                     </connections>
                 </viewController>
