@@ -21,14 +21,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         topTextField.text = "TOP"
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = .Center
-        topTextField.delegate = self
-        
+        initTextFields(topTextField)
         bottomTextField.text = "BOTTOM"
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.textAlignment = .Center
-        bottomTextField.delegate = self
+        initTextFields(bottomTextField)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -47,17 +42,28 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return true
     }
     
+    func initTextFields(textField: UITextField!){
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .Center
+        textField.delegate = self
+    }
+    
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        presentViewController(pickerController, animated: true, completion: nil)
+        pickAnImageFromAlbumOrCamera("Album")
     }
 
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
+        pickAnImageFromAlbumOrCamera("Camera")
+    }
+    
+    func pickAnImageFromAlbumOrCamera(string: String){
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        if (string == "Camera"){
+            pickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        } else {
+            pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
         presentViewController(pickerController, animated: true, completion: nil)
     }
     
