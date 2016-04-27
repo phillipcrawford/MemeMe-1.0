@@ -166,8 +166,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
     @IBAction func reloadPage(sender: AnyObject) {
-        viewDidLoad()
-        viewWillAppear(true)
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
         imagePickerView.image = nil
     }
     
