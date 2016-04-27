@@ -16,23 +16,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var topTextField: UITextField!
     @IBOutlet var bottomTextField: UITextField!
     @IBOutlet var toolBar: UIToolbar!
+    @IBOutlet var shareButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         topTextField.text = "TOP"
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = .Center
-        self.topTextField.delegate = self
+        topTextField.delegate = self
         
         bottomTextField.text = "BOTTOM"
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = .Center
-        self.bottomTextField.delegate = self
+        bottomTextField.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        //shareButton.enabled = false
         subscribeToKeyboardNotifications()
     }
     
@@ -147,7 +149,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func save(memedImage: UIImage) {
         //Create the meme
-        let meme = Meme( topText: bottomTextField.text!, bottomText: bottomTextField.text!, originalImage:
+        let meme = Meme( topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage:
             imagePickerView.image!, memedImage: memedImage)
     }
     @IBAction func activityViewController(sender: AnyObject) {
