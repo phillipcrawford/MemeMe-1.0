@@ -24,12 +24,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         initTextFields(topTextField)
         bottomTextField.text = "BOTTOM"
         initTextFields(bottomTextField)
+        shareButton.enabled = false
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        //shareButton.enabled = false
         subscribeToKeyboardNotifications()
     }
     
@@ -48,6 +48,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         textField.delegate = self
     }
     
+    // Image Picker
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
         pickAnImageFromAlbumOrCamera("Album")
     }
@@ -72,8 +73,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
             imagePickerView.contentMode = .ScaleAspectFit
+            shareButton.enabled = true
         }
-        
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -136,7 +137,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func generateMemedImage() -> UIImage {
         
-        // TODO: Hide toolbar and navbar
+        // Hide toolbar and navbar
         navBar.hidden = true
         toolBar.hidden = true
         
@@ -148,7 +149,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO:  Show toolbar and navbar
+        // Show toolbar and navbar
         navBar.hidden = false
         toolBar.hidden = false
         
@@ -163,7 +164,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func activityViewController(sender: AnyObject) {
         let memedImage = generateMemedImage()
         let shareController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        self.presentViewController(shareController, animated: true, completion: nil)
+        presentViewController(shareController, animated: true, completion: nil)
         shareController.completionWithItemsHandler = { activity, completed, items, error -> Void in
             if completed {
                 self.save(memedImage)
@@ -175,6 +176,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         imagePickerView.image = nil
+        shareButton.enabled = false
     }
     
 }
