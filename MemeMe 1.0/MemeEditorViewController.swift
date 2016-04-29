@@ -20,10 +20,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topTextField.text = "TOP"
-        initTextFields(topTextField)
-        bottomTextField.text = "BOTTOM"
-        initTextFields(bottomTextField)
+        initTextFields(topTextField, string: "TOP")
+        initTextFields(bottomTextField, string: "BOTTOM")
         shareButton.enabled = false
     }
     
@@ -42,7 +40,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return true
     }
     
-    func initTextFields(textField: UITextField!){
+    func initTextFields(textField: UITextField!, string: String){
+        textField.text = string
         textField.defaultTextAttributes = memeTextAttributes
         textField.textAlignment = .Center
         textField.delegate = self
@@ -50,21 +49,17 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // Image Picker
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
-        pickAnImageFromAlbumOrCamera("Album")
+        pickAnImageFromAlbumOrCamera(UIImagePickerControllerSourceType.PhotoLibrary)
     }
 
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
-        pickAnImageFromAlbumOrCamera("Camera")
+        pickAnImageFromAlbumOrCamera(UIImagePickerControllerSourceType.Camera)
     }
     
-    func pickAnImageFromAlbumOrCamera(string: String){
+    func pickAnImageFromAlbumOrCamera(source: UIImagePickerControllerSourceType){
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        if (string == "Camera"){
-            pickerController.sourceType = UIImagePickerControllerSourceType.Camera
-        } else {
-            pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        }
+        pickerController.sourceType = source
         presentViewController(pickerController, animated: true, completion: nil)
     }
     
