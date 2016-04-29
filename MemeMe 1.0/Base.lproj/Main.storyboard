@@ -22,6 +22,9 @@
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRQ-xB-T7s">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="8hs-H0-fxT"/>
+                                </constraints>
                                 <items>
                                     <navigationItem id="sv2-wQ-a1E">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="kvQ-WI-oXP">
@@ -39,6 +42,9 @@
                             </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncH-mS-57s">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="h08-hQ-sfb"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="b7W-ik-TE9"/>
                                     <barButtonItem systemItem="camera" id="5pk-C7-jCc">
