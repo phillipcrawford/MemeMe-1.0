@@ -155,7 +155,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         return memedImage
     }
-    
+
     func save(memedImage: UIImage) {
         //Create the meme
         let meme = Meme( topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage:
